@@ -1,0 +1,14 @@
+D:\PRN231_PRJ\prn231PR\DataAccsess\bin\Debug\net6.0\DataAccsess.deps.json
+D:\PRN231_PRJ\prn231PR\DataAccsess\bin\Debug\net6.0\DataAccsess.runtimeconfig.json
+D:\PRN231_PRJ\prn231PR\DataAccsess\bin\Debug\net6.0\DataAccsess.dll
+D:\PRN231_PRJ\prn231PR\DataAccsess\bin\Debug\net6.0\DataAccsess.pdb
+D:\PRN231_PRJ\prn231PR\DataAccsess\obj\Debug\net6.0\DataAccsess.csproj.AssemblyReference.cache
+D:\PRN231_PRJ\prn231PR\DataAccsess\obj\Debug\net6.0\DataAccsess.GeneratedMSBuildEditorConfig.editorconfig
+D:\PRN231_PRJ\prn231PR\DataAccsess\obj\Debug\net6.0\DataAccsess.AssemblyInfoInputs.cache
+D:\PRN231_PRJ\prn231PR\DataAccsess\obj\Debug\net6.0\DataAccsess.AssemblyInfo.cs
+D:\PRN231_PRJ\prn231PR\DataAccsess\obj\Debug\net6.0\DataAccsess.csproj.CoreCompileInputs.cache
+D:\PRN231_PRJ\prn231PR\DataAccsess\obj\Debug\net6.0\DataAccsess.dll
+D:\PRN231_PRJ\prn231PR\DataAccsess\obj\Debug\net6.0\refint\DataAccsess.dll
+D:\PRN231_PRJ\prn231PR\DataAccsess\obj\Debug\net6.0\DataAccsess.pdb
+D:\PRN231_PRJ\prn231PR\DataAccsess\obj\Debug\net6.0\DataAccsess.genruntimeconfig.cache
+D:\PRN231_PRJ\prn231PR\DataAccsess\obj\Debug\net6.0\ref\DataAccsess.dll

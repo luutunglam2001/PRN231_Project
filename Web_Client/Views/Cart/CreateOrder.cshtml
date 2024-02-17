@@ -1,0 +1,76 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    var mes = ViewData["notnull"];
+    var mes2 = ViewData["mess"];
+    string mess = HttpContextAccessor.HttpContext.Session.GetString("Message") ?? "";
+}
+@inject IHttpContextAccessor HttpContextAccessor;
+<h3>@mess</h3>
+<body>
+    <div class="container">
+        <form method="post">
+            <div class="p-5">
+                <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">Created Orders!</h1>
+                </div>
+                <form asp-action="CreateOrder" method="post" asp-controller="Cart">
+                    @{
+                        int accRole = HttpContextAccessor.HttpContext.Session.GetInt32("rolecate") ?? 5;
+                    }
+
+                    <div class="form-group">
+                        <input type="hidden" name="CustomerId" value="@accRole" class="form-control form-control-user"
+                               aria-describedby="emailHelp"
+                               placeholder="Enter OrderDate...">
+                    </div>
+
+                  @*  <div class="form-group">
+                        <input type="datetime-local" name="OrderDate" class="form-control form-control-user"
+                               aria-describedby="emailHelp"
+                               placeholder="Enter OrderDate...">
+                    </div>*@
+                    <div class="form-group">
+                        <input type="text" name="ShipAddress" class="form-control form-control-user"
+                               id="exampleInputPassword" placeholder="ShipAddress">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="ShipCountry" class="form-control form-control-user"
+                               id="exampleInputPassword" placeholder="ShipCountry">
+                    </div>
+                    <div class="form-group">
+                        <input type="date" name="ShippedDate" class="form-control form-control-user"
+                               id="exampleInputPassword" placeholder="ShippedDate">
+                    </div>
+                    @{
+                        if (mes2 != null)
+                        {
+                            <p style="color:lawngreen">@mes2</p>
+                            <input type="hidden" value="Checkout" class="btn btn-primary btn-user btn-block" />
+                            <a asp-page="/Home/Home">Continue shopping</a>
+                        }
+                        else
+                        {
+                            <p style="color:red">@mes </p>
+                            <input type="submit" value="Checkout" class="btn btn-primary btn-user btn-block" />
+                        }
+
+                    }
+
+
+
+                    @*    <p style="color:red">@mes </p>
+                    <input type="submit" value="Checkout" class="btn btn-primary btn-user btn-block" />*@
+
+                    <hr>
+
+                </form>
+                <hr>
+
+            </div>
+        </form>
+    </div>
+</body>

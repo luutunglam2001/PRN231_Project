@@ -1,0 +1,88 @@
+﻿@using DataAccsess.Helper;
+@using DataAccsess.Models;
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@inject IHttpContextAccessor HttpContextAccessor;
+<h2>Your cart</h2>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Product name</th>
+        <th>Producr Img</th>
+        <th>Product Price</th>
+        <th>Product Quantity</th>
+        <th>Total amount</th>
+        <th>Action</th>
+    </tr>
+    @{
+        double total = 0;
+    }
+    
+    
+        @foreach (var ct in ViewData["getItem"] as List<Item>)
+        {
+           
+            total += (double)(ct.Product.UnitPrice * ct.Quantity);
+            <tr>
+                <td>
+                    @ct.Product.ProductName
+                </td>
+                <td>
+                    <img src="@ct.Product.Picture" width="50" height="50">
+                </td>
+                <td>@ct.Product.UnitPrice</td>
+                <td>@ct.Quantity</td>
+                <td>@(
+                    ct.Product.UnitPrice * ct.Quantity
+                    )</td>
+                <td>
+                    <form asp-action="Delete" asp-route-id="@ct.Product.ProductId" asp-controller="Cart" onclick="removeDiv(@ct.Product.ProductId)" onsubmit="return confirm('Are you sure you want to delete this product?')">
+                        <input type="submit" value="Delete" class="btn btn-danger" />
+                    </form>
+                </td>
+            </tr>
+        
+        }
+    
+    
+    <tr>
+        <td>Total: $@total </td>
+    </tr>
+    <td>
+        <a asp-action="CreateOrder" asp-controller="Cart">Buy Now</a>
+    </td>
+
+</table>
+<a asp-action="ListProduct" asp-controller="Products">Continue shopping</a>
+<script>
+
+    function removeDiv(elem) {
+        var value = elem;
+        //https://localhost:7162/api/Cart/RemoveFromCart/1/1
+        var url_handmade = 'https://localhost:7162/api/Cart/RemoveFromCart/' + elem
+        $.ajax({
+            type: "GET", // Phương thức gửi dữ liệu GET hoặc POST or form.attr('method')
+            url: url_handmade, // File xử lý dữ liệu khi submit form
+            data: {}, // Đối tượng dữ liệu gửi đi  or form.serialize()
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            xhrFields: {
+                withCredentials: true
+            },
+            success: function (response) {
+                alert("Da xoa san pham vao gio hang");
+                var divThis = document.getElementById(value);
+                divThis.parentNode.removeChild(divThis);
+            },
+            error: function (xhr, status, error) {
+                alert("Da xoa san pham vao gio hang");
+                var divThis = document.getElementById(value);
+                divThis.parentNode.removeChild(divThis);
+            }
+        });
+
+    }
+</script>
